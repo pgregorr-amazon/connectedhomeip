@@ -1,0 +1,45 @@
+/**
+ *
+ *    Copyright (c) 2020-2023 Project CHIP Authors
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
+// #import "MTREndpoint.h"
+
+#import <Foundation/Foundation.h>
+
+#ifndef MTRCastingPlayer_h
+#define MTRCastingPlayer_h
+
+//@class MTREndpoint;
+
+@interface MTRCastingPlayer : NSObject
+@property (nonatomic, strong, readonly) NSString * _Nonnull identifier; // hash of hostname
+@property (nonatomic, strong, readonly) NSString * _Nonnull name;
+@property (nonatomic, strong, readonly) NSString * _Nonnull vendorId;
+@property (nonatomic, strong, readonly) NSString * _Nonnull productId;
+@property (nonatomic, strong, readonly) NSString * _Nonnull deviceType;
+//@property (nonatomic, assign, readonly, getter=isConnected) BOOL connected;
+//@property (nonatomic, strong, readonly) NSArray<MTREndpoint *> * _Nonnull endpoints;
+
+- (nonnull instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (nonnull instancetype)new UNAVAILABLE_ATTRIBUTE;
+
+//- (void)connectWithTimeout:(long)timeout withCompletionBlock:(void (^_Nonnull)(NSError * _Nullable))completion;
+
+//- (void)disconnect;
+
+@end
+
+#endif /* MTRCastingPlayer_h */

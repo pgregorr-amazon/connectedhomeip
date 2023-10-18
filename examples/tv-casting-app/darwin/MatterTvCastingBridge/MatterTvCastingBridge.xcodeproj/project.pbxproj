@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390AC7482AE0991A00A37417 /* MTRCastingPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 390AC7472AE0991A00A37417 /* MTRCastingPlayer.h */; };
+		390AC74A2AE0997B00A37417 /* MTRCastingPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 390AC7492AE0997B00A37417 /* MTRCastingPlayer.mm */; };
+		390AC74C2AE09A0300A37417 /* MTRCastingPlayerDiscovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 390AC74B2AE09A0300A37417 /* MTRCastingPlayerDiscovery.h */; };
+		390AC74E2AE09A5400A37417 /* MTRCastingPlayerDiscovery.mm in Sources */ = {isa = PBXBuildFile; fileRef = 390AC74D2AE09A5400A37417 /* MTRCastingPlayerDiscovery.mm */; };
 		3C26AC8C2926FE0C00BA6881 /* DeviceAttestationCredentialsProviderImpl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3C26AC8B2926FE0C00BA6881 /* DeviceAttestationCredentialsProviderImpl.hpp */; };
 		3C26AC902927008900BA6881 /* DeviceAttestationCredentialsProviderImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C26AC8F2927008900BA6881 /* DeviceAttestationCredentialsProviderImpl.mm */; };
 		3C26AC9329282B8100BA6881 /* DeviceAttestationCredentialsHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C26AC9229282B8100BA6881 /* DeviceAttestationCredentialsHolder.m */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		390AC7472AE0991A00A37417 /* MTRCastingPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTRCastingPlayer.h; sourceTree = "<group>"; };
+		390AC7492AE0997B00A37417 /* MTRCastingPlayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTRCastingPlayer.mm; sourceTree = "<group>"; };
+		390AC74B2AE09A0300A37417 /* MTRCastingPlayerDiscovery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTRCastingPlayerDiscovery.h; sourceTree = "<group>"; };
+		390AC74D2AE09A5400A37417 /* MTRCastingPlayerDiscovery.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTRCastingPlayerDiscovery.mm; sourceTree = "<group>"; };
 		3C0D9CDF2920A30C00D3332B /* CommissionableDataProviderImpl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommissionableDataProviderImpl.hpp; sourceTree = "<group>"; };
 		3C26AC8B2926FE0C00BA6881 /* DeviceAttestationCredentialsProviderImpl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DeviceAttestationCredentialsProviderImpl.hpp; sourceTree = "<group>"; };
 		3C26AC8F2927008900BA6881 /* DeviceAttestationCredentialsProviderImpl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DeviceAttestationCredentialsProviderImpl.mm; sourceTree = "<group>"; };
@@ -136,6 +144,10 @@
 				3CCB87202869085400771BAD /* MatterTvCastingBridge.h */,
 				3CF71C092A992D0D003A5CE5 /* MTRCastingApp.h */,
 				3CF71C0B2A992D25003A5CE5 /* MTRCastingApp.mm */,
+				390AC7472AE0991A00A37417 /* MTRCastingPlayer.h */,
+				390AC7492AE0997B00A37417 /* MTRCastingPlayer.mm */,
+				390AC74B2AE09A0300A37417 /* MTRCastingPlayerDiscovery.h */,
+				390AC74D2AE09A5400A37417 /* MTRCastingPlayerDiscovery.mm */,
 				3CF71C0D2A992DA2003A5CE5 /* MTRDataSource.h */,
 				3CF71C0F2A99312D003A5CE5 /* MTRCommissionableData.h */,
 				3CF71C112A993298003A5CE5 /* MTRCommissionableData.mm */,
@@ -191,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C69204C2AA136BA00D0F613 /* MTRCommonCaseDeviceServerInitParamsProvider.h in Headers */,
+				390AC7482AE0991A00A37417 /* MTRCastingPlayer.h in Headers */,
+				390AC74C2AE09A0300A37417 /* MTRCastingPlayerDiscovery.h in Headers */,
 				3CD6D01A298CDA2100D7569A /* CommissionerDiscoveryDelegateImpl.h in Headers */,
 				3CF71C0E2A992DA2003A5CE5 /* MTRDataSource.h in Headers */,
 				3C26AC8C2926FE0C00BA6881 /* DeviceAttestationCredentialsProviderImpl.hpp in Headers */,
@@ -315,6 +329,7 @@
 				3CCB8744286A593700771BAD /* ConversionUtils.mm in Sources */,
 				3CF71C0C2A992D25003A5CE5 /* MTRCastingApp.mm in Sources */,
 				3C4E53B028E4F28100F293E8 /* MediaPlaybackTypes.mm in Sources */,
+				390AC74E2AE09A5400A37417 /* MTRCastingPlayerDiscovery.mm in Sources */,
 				3CD73F1E2A9E83C1009D82D1 /* MTRCommissionableDataProvider.mm in Sources */,
 				3CD73F222A9EA078009D82D1 /* MTRDeviceAttestationCredentials.mm in Sources */,
 				3C66FBFC290327BB00B63FE7 /* AppParameters.mm in Sources */,
@@ -322,6 +337,7 @@
 				3C26AC9329282B8100BA6881 /* DeviceAttestationCredentialsHolder.m in Sources */,
 				3C26AC902927008900BA6881 /* DeviceAttestationCredentialsProviderImpl.mm in Sources */,
 				3CCB873F286A593700771BAD /* DiscoveredNodeData.mm in Sources */,
+				390AC74A2AE0997B00A37417 /* MTRCastingPlayer.mm in Sources */,
 				3C81C74C28F7A777001CB9D1 /* ContentApp.mm in Sources */,
 				3CF71C122A993298003A5CE5 /* MTRCommissionableData.mm in Sources */,
 				3C4AE650286A7D4D005B52A4 /* OnboardingPayload.m in Sources */,
