@@ -301,6 +301,17 @@ void InteractionModelEngine::Shutdown()
     // mpFabricTable    = nullptr;
     // mpExchangeMgr    = nullptr;
 
+    // Shutdown the data model provider and mark it as needing re-startup so that
+    // SetDataModelProvider() with the same pointer re-calls Startup() on the next
+    // Server::Init() cycle. We keep the pointer (rather than nulling it) so the
+    // provider remains accessible between Shutdown() and the next Init().
+    if (mDataModelProvider != nullptr)
+    {
+        ChipLogProgress(InteractionModel, "Shutting down data model provider %p", mDataModelProvider);
+        LogErrorOnFailure(mDataModelProvider->Shutdown());
+        mDataModelProviderNeedsStartup = true;
+    }
+
     mState = State::kUninitialized;
 }
 
@@ -1951,8 +1962,12 @@ DataModel::Provider * InteractionModelEngine::SetDataModelProvider(DataModel::Pr
 
     if (model == mDataModelProvider)
     {
-        // no-op, just return
-        return model;
+        if (!mDataModelProviderNeedsStartup)
+        {
+            return model;
+        }
+        // Provider was shut down and needs re-startup (e.g. Server restart cycle).
+        mDataModelProviderNeedsStartup = false;
     }
 
     DataModel::Provider * oldModel = mDataModelProvider;

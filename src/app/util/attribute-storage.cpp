@@ -528,6 +528,19 @@ void emAfCallInits()
     }
 }
 
+// Symmetric to emAfCallInits() — calls shutdown callbacks for all enabled endpoints.
+void emAfCallShutdowns(MatterClusterShutdownType shutdownType)
+{
+    uint16_t index;
+    for (index = 0; index < emberAfEndpointCount(); index++)
+    {
+        if (emberAfEndpointIndexIsEnabled(index))
+        {
+            shutdownEndpoint(&(emAfEndpoints[index]), shutdownType);
+        }
+    }
+}
+
 // Returns the pointer to metadata, or null if it is not found
 const EmberAfAttributeMetadata * emberAfLocateAttributeMetadata(EndpointId endpoint, ClusterId clusterId, AttributeId attributeId)
 {
@@ -736,13 +749,12 @@ Status emAfReadOrWriteAttribute(const EmberAfAttributeSearchRecord * attRecord, 
                                 return Status::Failure;
                             }
                         }
-                        else
-                        { // Not the attribute we are looking for
-                            // Increase the index if attribute is not externally stored
-                            if (!(am->mask & MATTER_ATTRIBUTE_FLAG_EXTERNAL_STORAGE))
-                            {
-                                attributeOffsetIndex = static_cast<uint16_t>(attributeOffsetIndex + emberAfAttributeSize(am));
-                            }
+
+                        // Not the attribute we are looking for
+                        // Increase the index if attribute is not externally stored
+                        if (!(am->mask & MATTER_ATTRIBUTE_FLAG_EXTERNAL_STORAGE))
+                        {
+                            attributeOffsetIndex = static_cast<uint16_t>(attributeOffsetIndex + emberAfAttributeSize(am));
                         }
                     }
 

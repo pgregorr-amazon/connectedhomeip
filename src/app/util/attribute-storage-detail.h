@@ -23,6 +23,7 @@
 #include <app/util/endpoint-config-api.h>
 #include <lib/support/CodeUtils.h>
 
+#include <app/util/af-types.h>
 #include <app/util/attribute-metadata.h>
 #include <zap-generated/endpoint_config.h>
 
@@ -30,7 +31,13 @@
 
 extern uint8_t attributeData[]; // main storage bucket for all attributes
 
+/// Calls cluster init callbacks for all enabled endpoints.
 void emAfCallInits();
+
+/// Calls cluster shutdown callbacks for all enabled endpoints.
+/// Symmetric to emAfCallInits() — tears down LazyRegisteredServerCluster
+/// objects so they can be re-created on the next emAfCallInits().
+void emAfCallShutdowns(MatterClusterShutdownType shutdownType);
 
 chip::Protocols::InteractionModel::Status emAfReadOrWriteAttribute(const EmberAfAttributeSearchRecord * attRecord,
                                                                    const EmberAfAttributeMetadata ** metadata, uint8_t * buffer,

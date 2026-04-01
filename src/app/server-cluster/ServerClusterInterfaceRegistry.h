@@ -86,7 +86,13 @@ public:
 
     void Destroy()
     {
-        VerifyOrDie(IsConstructed());
+        if (!IsConstructed())
+        {
+            // May be called twice during shutdown: first by emAfCallShutdowns()
+            // in CodegenDataModelProvider::Shutdown(), then again by the server
+            // teardown path that unregisters clusters. Safe to no-op if already destroyed.
+            return;
+        }
         Registration().~ServerClusterRegistration();
         memset(mRegistration, 0, sizeof(mRegistration));
 
